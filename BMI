@@ -1,0 +1,10 @@
+#! /home/wenyuhao/anaconda3/bin/python
+import argparse
+parser = argparse.ArgumentParser(description='calculate BMI')
+parser.add_argument('-H', help='height cm')
+parser.add_argument('-W', help='weight kg')
+args = parser.parse_args()
+h,w=int(args.H),int(args.W)
+bmi=w/(0.01*h)**2
+mess='肥胖' if bmi>=28 else '偏瘦' if bmi<=18.4 else '正常' if 18.5<=bmi<=23.9 else '过重'
+print('BMI:%s\n%s'%(bmi,mess))
